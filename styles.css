@@ -587,8 +587,14 @@ h3 {
 
 .benefit-card,
 .flavor-card,
+.need-card,
 .nutrition-card,
+.positioning-card,
+.relief-card,
+.persona-card,
+.packaging-card,
 .quote-card,
+.campaign-card,
 .shop-card,
 .signup-form {
   border: 1px solid var(--line);
@@ -663,6 +669,74 @@ h3 {
 
 .section-heading h2 {
   margin-bottom: 0;
+}
+
+.need-grid,
+.relief-grid,
+.persona-grid,
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.need-card,
+.relief-card,
+.persona-card,
+.campaign-card {
+  padding: 1.2rem;
+  border-radius: var(--radius-lg);
+}
+
+.need-card span,
+.relief-card span,
+.campaign-card span,
+.persona-type {
+  display: inline-flex;
+  margin-bottom: 1.1rem;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.need-card p,
+.relief-card p,
+.persona-card p,
+.campaign-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.positioning-card {
+  padding: clamp(1.4rem, 5vw, 3rem);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(142, 124, 255, 0.22), transparent 16rem),
+    radial-gradient(circle at 90% 80%, rgba(124, 247, 212, 0.14), transparent 16rem),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055));
+}
+
+.positioning-card h2 {
+  max-width: 15ch;
+}
+
+.positioning-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  max-width: 56rem;
+}
+
+.positioning-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.positioning-grid strong {
+  color: var(--accent);
 }
 
 .flavor-grid {
@@ -843,6 +917,62 @@ h3 {
   letter-spacing: 0.08em;
 }
 
+.relief-section {
+  padding-block: 4rem;
+}
+
+.relief-card {
+  min-height: 18rem;
+}
+
+.relief-card strong {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.65rem, 3vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.people-section {
+  padding-top: 4rem;
+}
+
+.persona-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.persona-card {
+  min-height: 17rem;
+}
+
+.persona-card h3 {
+  max-width: 18rem;
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.packaging-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: clamp(1.4rem, 5vw, 3rem);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(135deg, rgba(14, 22, 58, 0.95), rgba(10, 12, 28, 0.82)),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.055));
+}
+
+.packaging-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.packaging-copy p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .social-proof {
   padding-block: 2rem;
 }
@@ -866,6 +996,14 @@ h3 {
   margin: 1.5rem 0 0;
   color: var(--muted);
   font-weight: 800;
+}
+
+.campaign-section {
+  padding-block: 4rem;
+}
+
+.campaign-card {
+  min-height: 13rem;
 }
 
 .shop-section,
@@ -980,12 +1118,17 @@ h3 {
 }
 
 .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.js .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 620ms ease, transform 620ms ease;
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1058,6 +1201,8 @@ h3 {
   .hero,
   .split-section,
   .product-story,
+  .positioning-grid,
+  .packaging-card,
   .subscribe-section {
     grid-template-columns: 1fr;
   }
@@ -1076,13 +1221,20 @@ h3 {
   }
 
   .benefit-grid,
-  .flavor-grid {
+  .flavor-grid,
+  .need-grid,
+  .relief-grid,
+  .persona-grid,
+  .campaign-grid {
     grid-template-columns: 1fr;
   }
 
   .benefit-card,
   .benefit-card:nth-child(2),
-  .benefit-card:nth-child(3) {
+  .benefit-card:nth-child(3),
+  .relief-card,
+  .persona-card,
+  .campaign-card {
     min-height: auto;
     margin-top: 0;
   }
